@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-function page() {
+function Page() {
     const [list, setData] = useState([]);
 
     useEffect(()=>{
@@ -39,4 +39,4 @@ function page() {
     )
 }
 
-export default page
+export default Page
