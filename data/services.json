@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Aadhaar Card",
+        "id": "aadhaar-card",
+        "description": "Aadhaar Update, Address Change, New Aadhaar Application etc.",
+        "image": "1"
+    },
+    {
+        "title": "PAN Card",
+        "id": "pan-card",
+        "description": "New PAN Application, PAN Correction, PAN Card Reprint etc.",
+        "image": "2"
+    },
+    {
+        "title": "Ration Card",
+        "id": "ration-card",
+        "description": "New Ration Card Application, Ration Card Update, Address Change etc.",
+        "image": "3"
+    },
+    {
+        "title": "Voter ID Card",
+        "id": "voter-id-card",
+        "description": "New Voter ID Application, Voter ID Correction, Address Update etc.",
+        "image": "4"
+    },
+    {
+        "title": "Passport",
+        "id": "passport",
+        "description": "New Passport Application, Passport Renewal, Address Change etc.",
+        "image": "5"
+    },
+    {
+        "title": "Driving Licence",
+        "id": "driving-licence",
+        "description": "New Driving Licence Application, Licence Renewal, Address Change etc.",
+        "image": "6"
+    },
+    {
+        "title": "RTO Work",
+        "id": "rto-work",
+        "description": "Vehicle Registration, Ownership Transfer, Address Change etc.",
+        "image": "7"
+    },
+    {
+        "title": "Property Related Work",
+        "id": "property-related-work",
+        "description": "Property Registration, Mutation, Property Tax Payment etc.",
+        "image": "8"
+    },
+    {
+        "title": "Health Related Work",
+        "id": "health-related-work",
+        "description": "Health Insurance Application, Medical Records Update, Health Scheme Enrollment etc.",
+        "image": "9"
+    },
+    {
+        "title": "Income Tax Related Work",
+        "id": "income-tax-related-work",
+        "description": "Income Tax Filing, Tax Return, Tax Refund Status etc.",
+        "image": "10"
+    },
+    {
+        "title": "Insurance",
+        "id": "insurance",
+        "description": "New Insurance Policy, Policy Renewal, Claim Processing etc.",
+        "image": "11"
+    },
+    {
+        "title": "Education Related Documents",
+        "id": "education-related-documents",
+        "description": "New School Admission, Exam Registration, Certificate Issuance etc.",
+        "image": "12"
+    },
+    {
+        "title": "Other Government Schemes",
+        "id": "other-government-schemes",
+        "description": "Enrollment in Government Schemes, Benefit Claims, Status Check etc.",
+        "image": "13"
+    },
+    {
+        "title": "Business Related Documents",
+        "id": "business-related-documents",
+        "description": "Business Registration, GST Filing, Business License Application etc.",
+        "image": "14"
+    },
+    {
+        "title": "Birth and Death-Related Work",
+        "id": "birth-and-death-related-work",
+        "description": "Birth Certificate Issuance, Death Certificate Issuance, Record Update etc.",
+        "image": "15"
+    }
+]

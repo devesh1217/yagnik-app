@@ -14,9 +14,9 @@ function Home() {
             strings: ["Aadhaar Card", "PAN Card", "Driving Licence", "RC Book", "Passport", "Property Related Work"], // Strings to display
             // Speed settings, try diffrent values untill you get good results
             startDelay: 0,
-            typeSpeed: 100,
+            typeSpeed: 200,
             backSpeed: 100,
-            backDelay: 200,
+            backDelay: 500,
             loop: 1
         });
 
@@ -37,7 +37,7 @@ function Home() {
                 </div>
             </div>
             <div>
-                <Image src={hero} alt='Biometric ID Card' width={500} height={500}></Image>
+                <Image src={'/logo.png'} alt='Biometric ID Card' width={500} height={500}></Image>
             </div>
         </div>
     )

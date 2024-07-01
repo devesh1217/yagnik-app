@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Service = mongoose.Schema(
+const MicroService = mongoose.Schema(
     {
         id: {
             type: String,
@@ -8,7 +8,6 @@ const Service = mongoose.Schema(
         },
         title: {
             type: String,
-            required: true
         },
         description: {
             type: String,
@@ -21,4 +20,4 @@ const Service = mongoose.Schema(
     }
 );
 
-export default mongoose.models.Service || mongoose.model("Service", Service);
+export default mongoose.models.MicroService || mongoose.model("MicroService", MicroService);

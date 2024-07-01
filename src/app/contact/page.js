@@ -1,6 +1,6 @@
 import React from 'react'
 import ContactCard from '../components/ContactCard'
-import { Email, LocationOn, WhatsApp } from '@mui/icons-material'
+import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material'
 
 export const metadata = {
     title: "Contact | Sai General Store",
@@ -12,15 +12,20 @@ function page() {
         {
             link: 'mailto:email',
             icon: <Email className='text-7xl'></Email>,
-            text: 'email'
+            text: 'Email'
         },
         {
-            link: 'tel:no',
+            link: 'tel:+919714271310',
+            icon: <Phone className='text-7xl'></Phone>,
+            text: 'Phone No'
+        },
+        {
+            link: 'https://wa.link/6qt3f2',
             icon: <WhatsApp className='text-7xl'></WhatsApp>,
-            text: 'no'
+            text: 'Whatsapp'
         },
         {
-            link: 'map',
+            link: 'https://goo.gl/maps/6M7kLMzPuDn6uZbS7',
             icon: <LocationOn className='text-7xl'></LocationOn>,
             text: 'Location'
         },
