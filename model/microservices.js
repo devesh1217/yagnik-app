@@ -9,7 +9,7 @@ const MicroService = mongoose.Schema(
         title: {
             type: String,
         },
-        description: {
+        serviceId: {
             type: String,
             required: true
         },

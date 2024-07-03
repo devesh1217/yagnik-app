@@ -1,0 +1,278 @@
+[
+    {
+        "id": "new-aadhaar-card",
+        "serviceId": "aadhaar-card",
+        "title": "New Aadhaar Card",
+        "image": "1"
+    },
+    {
+        "id": "new-aadhaar-card-for-minor",
+        "serviceId": "aadhaar-card",
+        "title": "New Aadhaar Card for Minor",
+        "image": "2"
+    },
+    {
+        "id": "name-correction-change-in-aadhaar-card",
+        "serviceId": "aadhaar-card",
+        "title": "Name Correction/Change in Aadhaar Card",
+        "image": "3"
+    },
+    {
+        "id": "change-address-in-aadhaar-card",
+        "serviceId": "aadhaar-card",
+        "title": "Change Address in Aadhaar Card",
+        "image": "4"
+    },
+    {
+        "id": "update-aadhaar-card",
+        "serviceId": "aadhaar-card",
+        "title": "Update Aadhaar Card",
+        "image": "5"
+    },
+    {
+        "id": "new-pan-card",
+        "serviceId": "pan-card",
+        "title": "New PAN Card",
+        "image": "6"
+    },
+    {
+        "id": "new-pan-card-for-minor",
+        "serviceId": "pan-card",
+        "title": "New PAN Card for Minor",
+        "image": "7"
+    },
+    {
+        "id": "pan-card-for-business",
+        "serviceId": "pan-card",
+        "title": "PAN Card for Business",
+        "image": "8"
+    },
+    {
+        "id": "change-in-pan-card",
+        "serviceId": "pan-card",
+        "title": "Change in PAN Card",
+        "image": "9"
+    },
+    {
+        "id": "new-ration-card",
+        "serviceId": "ration-card",
+        "title": "New Ration Card",
+        "image": "10"
+    },
+    {
+        "id": "change-in-ration-card",
+        "serviceId": "ration-card",
+        "title": "Change in Ration Card",
+        "image": "11"
+    },
+    {
+        "id": "add-member-in-ration-card",
+        "serviceId": "ration-card",
+        "title": "Add Member in Ration Card",
+        "image": "12"
+    },
+    {
+        "id": "cancel-ration-card",
+        "serviceId": "ration-card",
+        "title": "Cancel Ration Card",
+        "image": "13"
+    },
+    {
+        "id": "new-voter-id-card",
+        "serviceId": "voter-id-card",
+        "title": "New Voter ID Card",
+        "image": "14"
+    },
+    {
+        "id": "change-in-voter-id-card",
+        "serviceId": "voter-id-card",
+        "title": "Change in Voter ID Card",
+        "image": "15"
+    },
+    {
+        "id": "new-passport",
+        "serviceId": "passport",
+        "title": "New Passport",
+        "image": "16"
+    },
+    {
+        "id": "passport-renewal",
+        "serviceId": "passport",
+        "title": "Passport Renewal",
+        "image": "17"
+    },
+    {
+        "id": "new-driving-licence",
+        "serviceId": "driving-licence",
+        "title": "New Driving Licence",
+        "image": "18"
+    },
+    {
+        "id": "change-in-dl",
+        "serviceId": "driving-licence",
+        "title": "Change in DL",
+        "image": "19"
+    },
+    {
+        "id": "update-vehicle-class-in-dl",
+        "serviceId": "driving-licence",
+        "title": "Update Vehicle Class in DL",
+        "image": "20"
+    },
+    {
+        "id": "dl-renewal",
+        "serviceId": "driving-licence",
+        "title": "DL Renewal",
+        "image": "21"
+    },
+    {
+        "id": "international-driving-permit",
+        "serviceId": "driving-licence",
+        "title": "International Driving Permit",
+        "image": "22"
+    },
+    {
+        "id": "rc-book-name-transfer",
+        "serviceId": "rto-work",
+        "title": "RC Book Name Transfer",
+        "image": "23"
+    },
+    {
+        "id": "fastag",
+        "serviceId": "rto-work",
+        "title": "FASTAG",
+        "image": "24"
+    },
+    {
+        "id": "gst",
+        "serviceId": "income-tax",
+        "title": "GST",
+        "image": "25"
+    },
+    {
+        "id": "it-return-file",
+        "serviceId": "income-tax",
+        "title": "IT Return File",
+        "image": "26"
+    },
+    {
+        "id": "health-insurance",
+        "serviceId": "insurance",
+        "title": "Health Insurance",
+        "image": "27"
+    },
+    {
+        "id": "vehicle-insurance",
+        "serviceId": "insurance",
+        "title": "Vehicle Insurance",
+        "image": "28"
+    },
+    {
+        "id": "abha-card",
+        "serviceId": "health-related-work",
+        "title": "ABHA Card",
+        "image": "29"
+    },
+    {
+        "id": "aayushyaman-card",
+        "serviceId": "health-related-work",
+        "title": "Aayushyaman Card",
+        "image": "30"
+    },
+    {
+        "id": "geb",
+        "serviceId": "property-related-work",
+        "title": "GEB",
+        "image": "31"
+    },
+    {
+        "id": "vmc",
+        "serviceId": "property-related-work",
+        "title": "VMC",
+        "image": "32"
+    },
+    {
+        "id": "property-card",
+        "serviceId": "property-related-work",
+        "title": "Property Card",
+        "image": "33"
+    },
+    {
+        "id": "rte",
+        "serviceId": "education-related-documents",
+        "title": "RTE",
+        "image": "34"
+    },
+    {
+        "id": "domicile-certificate",
+        "serviceId": "education-related-documents",
+        "title": "Domicile Certificate",
+        "image": "35"
+    },
+    {
+        "id": "ews-certificate",
+        "serviceId": "education-related-documents",
+        "title": "EWS Certificate",
+        "image": "36"
+    },
+    {
+        "id": "ncl-certificate",
+        "serviceId": "education-related-documents",
+        "title": "NCL Certificate",
+        "image": "37"
+    },
+    {
+        "id": "eshram-card",
+        "serviceId": "other-government-schemes",
+        "title": "eShram Card",
+        "image": "38"
+    },
+    {
+        "id": "udyam-registration",
+        "serviceId": "other-government-schemes",
+        "title": "Udyam Registration",
+        "image": "39"
+    },
+    {
+        "id": "vidhava-pension",
+        "serviceId": "other-government-schemes",
+        "title": "Vidhava Pension",
+        "image": "40"
+    },
+    {
+        "id": "vahli-dikari-scheme",
+        "serviceId": "other-government-schemes",
+        "title": "Vahli Dikari Scheme",
+        "image": "41"
+    },
+    {
+        "id": "gadget-scheme",
+        "serviceId": "other-government-schemes",
+        "title": "Gadget Scheme",
+        "image": "42"
+    },
+    {
+        "id": "pm-kisaan-scheme",
+        "serviceId": "other-government-schemes",
+        "title": "PM Kisaan Scheme",
+        "image": "43"
+    },
+    {
+        "id": "birth-certificate",
+        "serviceId": "birth-and-death-related-work",
+        "title": "Birth Certificate",
+        "image": "44"
+    },
+    {
+        "id": "death-certificate",
+        "serviceId": "birth-and-death-related-work",
+        "title": "Death Certificate",
+        "image": "45"
+    },
+    {
+        "id": "marriage-certificate",
+        "serviceId": "birth-and-death-related-work",
+        "title": "Marriage Certificate",
+        "image": "46"
+    }
+]
