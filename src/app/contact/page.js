@@ -34,7 +34,7 @@ function page() {
         <div className='m-16'>
             <h1 className='text-4xl text-center mb-10'>Contact Us</h1>
             <div className=''>
-                <div className='flex justify-center items-center w-full gap-x-5'>
+                <div className='flex sm:flex-row flex-col justify-center items-center w-full gap-5'>
                     {
                         data.map(item => {
                             return (

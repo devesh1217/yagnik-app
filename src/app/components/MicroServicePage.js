@@ -27,12 +27,12 @@ async function MicroServicePage({ params }) {
 
     return (
         <div className='my-16 mx-8 sm:mx-72'>
-            <div className='mb-10'>
-                <Link className='text-xl bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
-                <span className='text-xl'>&gt;</span>
-                <Link className='text-xl bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/'+params.id}>{service}</Link>
-                <span className='text-xl'>&gt;</span>
-                <Link className='text-xl bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={`/services/${params.id}/${params.subid}`}>{data.title}</Link>
+            <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
+                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
+                <span>&gt;</span>
+                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/'+params.id}>{service}</Link>
+                <span>&gt;</span>
+                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={`/services/${params.id}/${params.subid}`}>{data.title}</Link>
             </div>
             <div className='mb-10'>
                 <h1 className='text-4xl mb-10'>{data.title}</h1>

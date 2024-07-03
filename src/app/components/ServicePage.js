@@ -27,18 +27,18 @@ async function ServicePage({ params }) {
 
     return (
         <div className='my-16 mx-8 sm:mx-64'>
-            <div className='mb-10'>
-                <Link className='text-xl bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
-                <span className='text-xl'>&gt;</span>
-                <Link className='text-xl bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + service.title}>{service.title}</Link>
+            <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
+                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
+                <span>&gt;</span>
+                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + service.title}>{service.title}</Link>
             </div>
-                    <h1 className='text-4xl mb-10'>{service.title}</h1>
+            <h1 className='text-4xl mb-10'>{service.title}</h1>
             <div className='flex flex-col sm:flex-row justify-between items-stretch gap-8'>
                 <div className='mb-10'>
                     <Image src={`/Services/${service.image}.png`} width={500} height={1000} alt={service.id}></Image>
                 </div>
                 <div className='mb-10'>
-                    <ul className='space-y-7 text-amber-200 list-decimal list-inside h-full flex flex-col justify-center text-2xl'>
+                    <ul className='space-y-7 text-amber-200 list-decimal list-inside h-full flex flex-col justify-center sm:text-2xl text-lg'>
                         {
                             data.map(item => {
                                 return (

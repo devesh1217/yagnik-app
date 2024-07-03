@@ -1,7 +1,5 @@
-import Image from "next/image";
+import NavBar from "./components/NavBar";
 import "./globals.css";
-import Link from "next/link";
-
 
 export const metadata = {
     title: "Home | Sai General Store",
@@ -12,17 +10,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={"bg-slate-900 min-h-screen"}>
-                <nav className="flex justify-between items-center w-full px-16 py-4 shadow-lg shadow-gray-900 bg-slate-950 mb-4">
-                    <Link className="flex gap-x-2 items-center" href={'/'}>
-                        <Image src={'/logo.png'} width={40} height={40} alt="Logo"></Image>
-                        <div className="text-2xl">Sai General Store</div>
-                    </Link>
-                    <div className="flex gap-x-8">
-                        <Link className="hover:underline text-xl" href={'/'}>Home</Link>
-                        <Link className="hover:underline text-xl" href={'/services'}>Services</Link>
-                        <Link className="hover:underline text-xl" href={'/contact'}>Contact Us</Link>
-                    </div>
-                </nav>
+                <NavBar></NavBar>
                 {children}
             </body>
         </html>
