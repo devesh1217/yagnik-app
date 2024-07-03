@@ -10,7 +10,7 @@ export const metadata = {
 function page() {
     const data = [
         {
-            link: 'mailto:email',
+            link: 'mailto:SAIGENERAL1310@GMAIL.COM',
             icon: <Email className='text-7xl'></Email>,
             text: 'Email'
         },
