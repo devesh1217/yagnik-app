@@ -3,10 +3,10 @@ import Loader from '@/app/components/Loader';
 import ServicePage from '@/app/components/ServicePage';
 import React, { Suspense } from 'react'
 
-function page({ params }) {
+async function page() {
     return (
         <Suspense fallback={<Loader></Loader>}>
-            <ServicePage params={params} ></ServicePage>
+            <ServicePage></ServicePage>
         </Suspense>
     )
 }

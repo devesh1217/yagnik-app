@@ -1,11 +1,12 @@
+"use client"
 import Loader from '@/app/components/Loader'
 import MicroServicePage from '@/app/components/MicroServicePage'
 import React, { Suspense } from 'react'
 
-function page({ params }) {
+function page() {
     return (
         <Suspense fallback={<Loader/>} >
-            <MicroServicePage params={params} />
+            <MicroServicePage/>
         </Suspense>
     )
 }

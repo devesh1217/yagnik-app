@@ -8,6 +8,9 @@ export async function GET(req, {params}) {
         const {id} = params;
         await connectDB()
         const data = await services.findOne({id: id},{title:1, _id:0});
+        if(!data){
+            return NextResponse.json({ success: true, notFound: true }, { status: 200 })
+        }
         return NextResponse.json({ success: true, data }, { status: 200 })
     } catch(err){
         console.log(err)

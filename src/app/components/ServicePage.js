@@ -1,29 +1,27 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
+import NotFound from '../not-found';
+import Error from '../error';
+import { useParams } from 'next/navigation';
 
-async function ServicePage({ params }) {
-    const [data, setData] = useState([]);
-    const [service, setService] = useState({});
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const [res, resp] = await Promise.all([
-                    axios.get('/api/microservices/all/' + params.id),
-                    axios.get('/api/services/get/' + params.id)
-                ]);
+async function ServicePage() {
+    const params = useParams();
+    const id = params.id
 
-                setData(res.data.data);
-                setService(resp.data.data[0]);
-            } catch (error) {
-                console.error("Error fetching data", error);
-            }
-        };
-
-        getData();
-    }, []);
+    const [res, resp] = await Promise.all([
+        axios.get('/api/microservices/all/' + id),
+        axios.get('/api/services/get/' + id)
+    ]);
+    if (!res.data.success || !resp.data.success) {
+        return <Error />
+    }
+    if (res.data.notFound || resp.data.notFound) {
+        return <NotFound />
+    }
+    const service = resp.data.data;
+    const data = res.data.data;
 
     return (
         <div className='my-16 mx-8 sm:mx-64'>
@@ -43,7 +41,7 @@ async function ServicePage({ params }) {
                             data.map(item => {
                                 return (
                                     <li key={item.id}>
-                                        <Link href={'/services/' + params.id + '/' + item.id} className='underline'>{item.title}</Link>
+                                        <Link href={'/services/' + id + '/' + item.id} className='underline'>{item.title}</Link>
                                     </li>
                                 )
                             })

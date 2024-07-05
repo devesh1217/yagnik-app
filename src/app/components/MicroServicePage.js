@@ -1,36 +1,34 @@
-"use client";
 import axios from 'axios';
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import NotFound from '../not-found';
+import Error from '../error';
+import { useParams } from 'next/navigation';
 
-async function MicroServicePage({ params }) {
-    const [data, setData] = useState({title: "", image: 0, id: ""});
-    const [service, setService] = useState("");
+async function MicroServicePage() {
 
-    useEffect(()=>{
-        const getData = async () => {
-            try {
-                const [res, resp] = await Promise.all([
-                    axios.get('/api/microservices/get/' + params.subid),
-                    axios.get('/api/microservices/get-service-name/' + params.id)
-                ]);
-                setData(res.data.data[0]);
-                setService(resp.data.data.title);
-            } catch (error) {
-                console.error("Error fetching data", error);
-            }
-        };
+    const params = useParams();
+    const [res, resp] = await Promise.all([
+        axios.get('/api/microservices/get/' + params.subid),
+        axios.get('/api/microservices/get-service-name/' + params.id)
+    ]);
+    if (!res.data.success || !resp.data.success) {
+        return <Error />
+    }
+    if (res.data.notFound || resp.data.notFound) {
+        return <NotFound />
+    }
+    const service = resp.data.data.title;
+    const data = res.data.data[0];
 
-        getData();
-    },[])
 
     return (
         <div className='my-16 mx-8 sm:mx-72'>
             <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
                 <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
                 <span>&gt;</span>
-                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/'+params.id}>{service}</Link>
+                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + params.id}>{service}</Link>
                 <span>&gt;</span>
                 <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={`/services/${params.id}/${params.subid}`}>{data.title}</Link>
             </div>

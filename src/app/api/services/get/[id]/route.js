@@ -6,7 +6,10 @@ import connectDB from "@/app/lib/db";
 export async function GET(req, { params }) {
     try {
         await connectDB()
-        const data = await services.find({id: params.id},{image: 1, id: 1, title: 1})
+        const data = await services.findOne({id: params.id},{image: 1, id: 1, title: 1})
+        if(!data){
+            return NextResponse.json({ success: true, notFound: true }, { status: 200 })
+        }
         return NextResponse.json({ success: true, data }, { status: 200 })
     } catch(err){
         console.log(err)

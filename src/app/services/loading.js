@@ -1,11 +1,11 @@
 "use client"
 import React from 'react'
-import Loader from '../components/Loader'
+import Loader from '@/app/components/Loader'
 
-function loading() {
+function Loading() {
     return (
         <Loader />
     )
 }
 
-export default loading
+export default Loading

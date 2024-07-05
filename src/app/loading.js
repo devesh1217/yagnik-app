@@ -2,10 +2,10 @@
 import React from 'react'
 import Loader from './components/Loader'
 
-function loading() {
+function Loading() {
     return (
         <Loader />
-    )
+    )   
 }
 
-export default loading
+export default Loading
