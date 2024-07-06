@@ -1,13 +1,12 @@
-"use client"
 import React from 'react'
-import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card';
 import Link from 'next/link';
 
 async function CardGrid() {
     
-    const list = await (await axios.get('/api/services')).data.data;
+    const {data} = await Promise.resolve(axios.get('/api/services'));
+    const list = data.data;
 
     return (
         <div className='flex flex-wrap justify-evenly items-stretch m-4 p-4 gap-8'>

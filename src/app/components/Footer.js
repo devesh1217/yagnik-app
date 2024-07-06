@@ -40,8 +40,8 @@ function Footer() {
                 </div>
                 <div className='text-gray-400 text-center'> &copy; 2024, Sai General Store.</div>
             </div>
-            <div className='bg-slate-300 text-center text-black sm:text-lg  p-1 flex flex-col sm:flex-row justify-between'>
-                <div>Made with ❤️ in 🇮🇳.</div>
+            <div className='bg-slate-300 text-center text-black sm:text-lg  p-1 flex flex-col sm:flex-row justify-center'>
+                {/* <div>Made with ❤️ in 🇮🇳.</div> */}
                 <div>Designed and Developed by <Link href={'https://linkedin.com/in/devesh1217'} className='hover:underline font-semibold'>Devesh Mehta</Link></div>
             </div>
         </div>
