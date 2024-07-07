@@ -22,9 +22,11 @@ async function ServicePage() {
                 axios.get('/api/services/get/' + id)
             ]);
             if (!res.data.success || !resp.data.success) {
+                setLoadingStatus(false);
                 return <Error />
             }
             if (res.data.notFound || resp.data.notFound) {
+                setLoadingStatus(false);
                 return <NotFound />
             }
             setService(resp.data.data);

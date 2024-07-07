@@ -24,9 +24,11 @@ async function MicroServicePage() {
                 axios.get('/api/microservices/get-service-name/' + params.id)
             ]);
             if (!res.data.success || !resp.data.success) {
+                setLoadingStatus(false);
                 return <Error />
             }
             if (res.data.notFound || resp.data.notFound) {
+                setLoadingStatus(false);
                 return <NotFound />
             }
             console.log(res.data.data, resp.data.data)
