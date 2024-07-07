@@ -1,29 +1,48 @@
 import axios from 'axios';
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NotFound from '../not-found';
 import Error from '../error';
 import { useParams } from 'next/navigation';
+import Loader from './Loader';
+import FullScreenImage from './FullScreenImage';
 
 async function MicroServicePage() {
 
     const params = useParams();
-    const [res, resp] = await Promise.all([
-        axios.get('/api/microservices/get/' + params.subid),
-        axios.get('/api/microservices/get-service-name/' + params.id)
-    ]);
-    if (!res.data.success || !resp.data.success) {
-        return <Error />
-    }
-    if (res.data.notFound || resp.data.notFound) {
-        return <NotFound />
-    }
-    const service = resp.data.data.title;
-    const data = res.data.data[0];
 
+    const [data, setData] = useState({});
+    const [service, setService] = useState("");
+    const [isLoading, setLoadingStatus] = useState(true);
+    const [isImageOpen, setIamgeStatus] = useState(false);
 
-    return (
+    useEffect(() => {
+        const getData = async () => {
+            const [res, resp] = await Promise.all([
+                axios.get('/api/microservices/get/' + params.subid),
+                axios.get('/api/microservices/get-service-name/' + params.id)
+            ]);
+            if (!res.data.success || !resp.data.success) {
+                return <Error />
+            }
+            if (res.data.notFound || resp.data.notFound) {
+                return <NotFound />
+            }
+            console.log(res.data.data, resp.data.data)
+            setService(resp.data.data.title);
+            setData(res.data.data[0]);
+            setLoadingStatus(false);
+        }
+        getData();
+    }, []);
+
+    const handleClick = () => {
+        setIamgeStatus(true);
+    }
+
+    return isLoading ? <Loader/> :
+    (
         <div className='my-16 mx-8 sm:mx-72'>
             <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
                 <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
@@ -32,10 +51,14 @@ async function MicroServicePage() {
                 <span>&gt;</span>
                 <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={`/services/${params.id}/${params.subid}`}>{data.title}</Link>
             </div>
+            
             <div className='mb-10'>
                 <h1 className='text-4xl mb-10'>{data.title}</h1>
-                <Image src={`/Services/${data.image}.png`} width={500} height={1000} alt={data.title}></Image>
+                <Image className='hover:cursor-pointer' src={`/MicroServices/${data.image}.jpg`} width={500} height={1000} alt={data.title} onClick={handleClick}></Image>
             </div>
+            {
+                isImageOpen ? <FullScreenImage image={data.image} title={data.title} close={setIamgeStatus} /> : <></>
+            }
         </div>
     )
 }

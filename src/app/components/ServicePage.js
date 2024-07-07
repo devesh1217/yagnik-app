@@ -1,29 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
 import NotFound from '../not-found';
 import Error from '../error';
 import { useParams } from 'next/navigation';
+import Loader from './Loader';
 
 async function ServicePage() {
     const params = useParams();
     const id = params.id
 
-    const [res, resp] = await Promise.all([
-        axios.get('/api/microservices/all/' + id),
-        axios.get('/api/services/get/' + id)
-    ]);
-    if (!res.data.success || !resp.data.success) {
-        return <Error />
-    }
-    if (res.data.notFound || resp.data.notFound) {
-        return <NotFound />
-    }
-    const service = resp.data.data;
-    const data = res.data.data;
+    const [service, setService] = useState({});
+    const [data, setData] = useState([]);
+    const [isLoading, setLoadingStatus] = useState(true);
 
-    return (
+    useEffect(() => {
+        const getData = async () => {
+            const [res, resp] = await Promise.all([
+                axios.get('/api/microservices/all/' + id),
+                axios.get('/api/services/get/' + id)
+            ]);
+            if (!res.data.success || !resp.data.success) {
+                return <Error />
+            }
+            if (res.data.notFound || resp.data.notFound) {
+                return <NotFound />
+            }
+            setService(resp.data.data);
+            setData(res.data.data);
+            setLoadingStatus(false);
+        }
+        getData();
+    }, []);
+
+    
+
+    return isLoading ? <Loader /> :
+    (
         <div className='my-16 mx-8 sm:mx-64'>
             <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
                 <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
