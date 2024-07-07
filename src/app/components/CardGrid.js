@@ -19,7 +19,7 @@ async function CardGrid() {
             {
                 list.map((item) => {
                     return (
-                        <Link href={'/services/' + item.id} key={item.id}>
+                        <Link href={'/services/' + item.id} key={item.id} className='hover:cursor-pointer'>
                             <Card item={item}></Card>
                         </Link>
                     )

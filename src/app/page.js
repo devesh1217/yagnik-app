@@ -51,7 +51,7 @@ function Home() {
                 <h2 className='text-3xl text-sky-400 mb-7 italic text-center'>All kind government services available.</h2>
                 <div className='flex justify-center sm:justify-normal'><span ref={el} className='text-2xl text-amber-300 mb-7 h-5'></span></div>
                 <div className='mt-7 flex justify-center sm:justify-normal'>
-                    <Link href={'/services'} className='bg-gray-700 hover:bg-gray-800 rounded-full p-1 text-xl'>Explore All Services</Link>
+                    <Link href={'/services'} className='bg-gray-700 hover:bg-gray-800 rounded-full p-1 text-xl hover:cursor-pointer'>Explore All Services</Link>
                 </div>
             </div>
             <div className='hidden sm:inline-block'>

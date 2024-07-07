@@ -17,6 +17,9 @@ async function MicroServicePage() {
     const [isLoading, setLoadingStatus] = useState(true);
     const [isImageOpen, setIamgeStatus] = useState(false);
 
+    const  [error, setError] = useState(false)
+    const  [notFound, setNotFound] = useState(false)
+
     useEffect(() => {
         const getData = async () => {
             const [res, resp] = await Promise.all([
@@ -25,11 +28,13 @@ async function MicroServicePage() {
             ]);
             if (!res.data.success || !resp.data.success) {
                 setLoadingStatus(false);
-                return <Error />
+                setError(true)
+                return;
             }
             if (res.data.notFound || resp.data.notFound) {
                 setLoadingStatus(false);
-                return <NotFound />
+                setNotFound(true)
+                return;
             }
             console.log(res.data.data, resp.data.data)
             setService(resp.data.data.title);
@@ -39,6 +44,10 @@ async function MicroServicePage() {
         getData();
     }, []);
 
+    if(error) return <Error/>
+
+    if(notFound) return <NotFound/>
+
     const handleClick = () => {
         setIamgeStatus(true);
     }
@@ -47,11 +56,11 @@ async function MicroServicePage() {
     (
         <div className='my-16 mx-8 sm:mx-72'>
             <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
-                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
+                <Link className='hover:cursor-pointer bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
                 <span>&gt;</span>
-                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + params.id}>{service}</Link>
+                <Link className='hover:cursor-pointer bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + params.id}>{service}</Link>
                 <span>&gt;</span>
-                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={`/services/${params.id}/${params.subid}`}>{data.title}</Link>
+                <Link className='hover:cursor-pointer bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={`/services/${params.id}/${params.subid}`}>{data.title}</Link>
             </div>
             
             <div className='mb-10'>

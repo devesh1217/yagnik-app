@@ -14,6 +14,8 @@ async function ServicePage() {
     const [service, setService] = useState({});
     const [data, setData] = useState([]);
     const [isLoading, setLoadingStatus] = useState(true);
+    const  [error, setError] = useState(false)
+    const  [notFound, setNotFound] = useState(false)
 
     useEffect(() => {
         const getData = async () => {
@@ -23,11 +25,13 @@ async function ServicePage() {
             ]);
             if (!res.data.success || !resp.data.success) {
                 setLoadingStatus(false);
-                return <Error />
+                setError(true)
+                return;
             }
             if (res.data.notFound || resp.data.notFound) {
                 setLoadingStatus(false);
-                return <NotFound />
+                setNotFound(true)
+                return;
             }
             setService(resp.data.data);
             setData(res.data.data);
@@ -36,15 +40,17 @@ async function ServicePage() {
         getData();
     }, []);
 
-    
+    if(error) return <Error/>
+
+    if(notFound) return <NotFound/>    
 
     return isLoading ? <Loader /> :
     (
         <div className='my-16 mx-8 sm:mx-64'>
             <div className='mb-10 text-xs sm:text-lg flex items-center gap-1 flex-wrap'>
-                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
+                <Link className='hover:cursor-pointer  bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services'}>Services</Link>
                 <span>&gt;</span>
-                <Link className=' bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + service.title}>{service.title}</Link>
+                <Link className='hover:cursor-pointer  bg-slate-800 p-2 hover:bg-slate-700 rounded-full' href={'/services/' + service.title}>{service.title}</Link>
             </div>
             <h1 className='text-4xl mb-10'>{service.title}</h1>
             <div className='flex flex-col sm:flex-row justify-between items-stretch gap-8'>
@@ -57,7 +63,7 @@ async function ServicePage() {
                             data.map(item => {
                                 return (
                                     <li key={item.id}>
-                                        <Link href={'/services/' + id + '/' + item.id} className='underline'>{item.title}</Link>
+                                        <Link href={'/services/' + id + '/' + item.id} className='hover:cursor-pointer underline'>{item.title}</Link>
                                     </li>
                                 )
                             })
