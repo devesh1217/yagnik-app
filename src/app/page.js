@@ -121,7 +121,7 @@ function InstallPrompt() {
                         {' '}
                         ⎋{' '}
                     </span>
-                    and then "Add to Home Screen"
+                    and then &quot; Add to Home Screen &quot;
                     <span role="img" aria-label="plus icon">
                         {' '}
                         ➕{' '}
@@ -187,7 +187,7 @@ function Home() {
                 <Image src={'/home.png'} alt='Biometric ID Card' width={500} height={500}></Image>
             </div>
             <PushNotificationManager />
-            <InstallPrompt />
+            {/* <InstallPrompt /> */}
         </div>
     )
 }
