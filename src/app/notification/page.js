@@ -36,17 +36,17 @@ export default function NotificationPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Custom Install Prompt</h1>
+    <div className="flex flex-col items-center justify-cente p-4">
+      <h1 className="text-4xl text-white mb-4">Install Our APP</h1>
       {isInstallable ? (
         <button
           onClick={handleInstallClick}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-md transition duration-200"
+          className="bg-slate-800 hover:bg-slate-700 text-white font-medium py-2 px-4 rounded-md shadow-md transition duration-200"
         >
           Install App
         </button>
       ) : (
-        <p className="text-gray-600">Your app is already installed or not installable.</p>
+        <p className="text-white">Your app is already installed or not installable.</p>
       )}
     </div>
   );

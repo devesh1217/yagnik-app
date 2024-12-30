@@ -1,6 +1,8 @@
 'use server';
 
 import webpush from 'web-push';
+import connections from '@/models/connections';
+import connectDB from '@/lib/db';
 
 webpush.setVapidDetails(
     'mailto:u22cs035@coed.svnit.ac.in',
@@ -12,36 +14,64 @@ let subscription = null;
 
 export async function subscribeUser(sub) {
     subscription = sub;
-    // In a production environment, you would want to store the subscription in a database
-    // For example: await db.subscriptions.create({ data: sub })
-    return { success: true };
-}
-
-export async function unsubscribeUser() {
-    subscription = null;
-    // In a production environment, you would want to remove the subscription from the database
-    // For example: await db.subscriptions.delete({ where: { ... } })
-    return { success: true };
-}
-
-export async function sendNotification(message) {
-    if (!subscription) {
-        throw new Error('No subscription available');
-    }
-
     try {
-        await webpush.sendNotification(
-            subscription,
-            JSON.stringify({
-                title: 'Test Notification',
-                body: message,
-                icon: '/logo.png',
-            })
-        );
-        // console.log(subscription)
+        await connectDB();
+        const data = await connections.create({ data: sub });
+        return { success: true, id: data._id };
+    } catch (error) {
+        console.error('Error storing subscription:', error);
+        return { success: false, error: 'Failed to store subscription' };
+    }
+}
+
+export async function unsubscribeUser(id) {
+    subscription = null;
+    try {
+        await connectDB();
+        await connections.deleteOne({ _id: id });
         return { success: true };
     } catch (error) {
-        console.error('Error sending push notification:', error);
-        return { success: false, error: 'Failed to send notification' };
+        console.error('Error removing subscription:', error);
+        return { success: false, error: 'Failed to remove subscription' };
+    }
+}
+
+export async function sendNotification(payload) {
+    try {
+        const { title, body: message } = payload
+        await connectDB();
+        const data = await connections.find({});
+        let cnt = 0;
+        // console.log("****",data)
+        await Promise.all(data.map(async (subscription) => {
+            if (!subscription || !subscription.data) {
+                throw new Error('No subscription available');
+            }
+
+            try {
+                await webpush.sendNotification(
+                    subscription.data,
+                    JSON.stringify({
+                        title: title,
+                        body: message,
+                        icon: '/logo.png',
+                        badge: '/logo.png',
+                        vibrate: [100, 50, 100],
+                    })
+                );
+                // console.log(subscription)
+                cnt++;
+                return { success: true };
+            } catch (error) {
+                await connections.deleteOne({ _id: subscription._id })
+                // console.error('Error sending push notification:', error);
+                return { success: false, error: 'Failed to send notification' };
+            }
+        }))
+        const after = await connections.countDocuments();
+        return { success: true, totalSent: cnt, totalBefore: data.length, totalAfter: after }
+    } catch (err) {
+        console.log(err)
+        return { success: false }
     }
 }

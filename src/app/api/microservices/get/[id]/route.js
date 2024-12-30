@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import microservices from "../../../../../../model/microservices";
-import connectDB from "@/app/lib/db";
+import connectDB from "@/lib/db";
 
 
 export async function GET(req, { params }) {
