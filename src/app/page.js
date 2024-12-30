@@ -82,7 +82,7 @@ function PushNotificationManager() {
     return (
         <div className='flex flex-col justify-center items-center gap-5 p-5 w-full border-t-2 border-t-white'>
             <h3 className='text-4xl'>Latest Government Updates</h3>
-            {subscription ? (
+            {(subscription && localStorage.getItem('push-id')) ? (
                 <div className='flex flex-col justify-center items-center'>
                     <p>You are subscribed to Government Notifications.</p>
                     <button onClick={unsubscribeFromPush} className='bg-slate-800 hover:bg-slate-700 p-2 m-2 rounded-md'>
