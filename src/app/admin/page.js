@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { sendNotification } from '../actions';
 
-function page() {
+function AdminPage() {
     const [formData, setFormData] = useState({
         title: '',
         body: ''
@@ -60,4 +60,4 @@ function page() {
     )
 }
 
-export default page
+export default AdminPage
