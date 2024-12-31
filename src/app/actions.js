@@ -54,9 +54,6 @@ export async function sendNotification(payload) {
                     JSON.stringify({
                         title: title,
                         body: message,
-                        icon: '/logo.png',
-                        badge: '/logo.png',
-                        vibrate: [100, 50, 100],
                     })
                 );
                 // console.log(subscription)

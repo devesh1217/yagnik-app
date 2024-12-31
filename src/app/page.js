@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import Typed from 'typed.js'
 import Link from 'next/link';
-import { subscribeUser, unsubscribeUser, sendNotification } from './actions'
+import { subscribeUser, unsubscribeUser } from './actions'
 import NotificationPage from './notification/page';
 
 function urlBase64ToUint8Array(base64String) {
