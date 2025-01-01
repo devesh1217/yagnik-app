@@ -19,7 +19,7 @@ self.addEventListener('push', function (event) {
     const options = {
       body: data.body || 'You have a new notification!',
       icon: data.icon || '/icons/logo.png',
-      badge: data.badge || '/monochrome.png',
+      badge: data.badge || '/icons/monochrome.png',
       vibrate: data.vibrate || [200, 100, 200],
       tag: data.tag || 'default-tag',
       renotify: data.renotify || false,
