@@ -80,7 +80,7 @@ function PushNotificationManager() {
     }
 
     return (
-        <div className='flex flex-col justify-center items-center gap-5 p-5 w-full border-t-2 border-t-white'>
+        <div className='flex flex-col text-center justify-center items-center gap-5 p-5 w-full border-t-2 border-t-white'>
             <h3 className='text-4xl'>Latest Government Updates</h3>
             {(subscription && localStorage.getItem('push-id')) ? (
                 <div className='flex flex-col justify-center items-center'>
@@ -181,7 +181,7 @@ function Home() {
             <div className='w-full h-screen sm:py-24 py-8 px-4 sm:px-0 flex flex-col sm:flex-row justify-start sm:justify-evenly items-center'>
                 <div>
                     <div className='flex sm:flex-row flex-col justify-center items-center gap-10 mb-7'>
-                        <Image src={!isMobile ? '/logo.png' : '/home.png'} alt='Biometric ID Card' width={180} height={180}></Image>
+                        <Image src={!isMobile ? '/icons/logo.png' : '/images/home.png'} alt='Biometric ID Card' width={180} height={180}></Image>
                         <h1 className='text-6xl mb-5 hidden sm:inline-block'>Sai General <br></br>Store</h1>
                         <h1 className='text-4xl mb-5 sm:hidden'>Sai General Store</h1>
                     </div>
@@ -192,7 +192,7 @@ function Home() {
                     </div>
                 </div>
                 <div className='hidden sm:inline-block'>
-                    <Image src={'/home.png'} alt='Biometric ID Card' width={500} height={500}></Image>
+                    <Image src={'/images/home.png'} alt='Biometric ID Card' width={500} height={500}></Image>
                 </div>
                 {/* <InstallPrompt /> */}
             </div>

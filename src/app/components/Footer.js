@@ -9,7 +9,7 @@ function Footer() {
             <div className='bg-gray-900 py-10 pb-4 px-12'>
                 <div className='flex justify-center items-center gap-x-10 gap-y-5 mb-10 flex-col sm:flex-row'>
                     <Link href={'/'} className='flex justify-start items-center gap-5 hover:cursor-pointer'>
-                        <Image src={'/logo.png'} width={50} height={50} alt='Logo'></Image>
+                        <Image src={'/icons/logo.png'} width={50} height={50} alt='Logo'></Image>
                         <h1 className='text-2xl sm:text-3xl'>Sai General Store</h1>
                     </Link>
                     <div className='border-t-2 sm:border-l-2 sm:border-t-0 border-white h-0 sm:h-10 w-full sm:w-0'></div>

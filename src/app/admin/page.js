@@ -35,7 +35,7 @@ function AdminPage() {
     return (
         <div className='min-h-screen m-10'>
             <h1 className='text-3xl text-center mb-10 '>Admin Panel</h1>
-            <div className='rounded-lg shadow-lg shadow-slate-600 mx-36 p-5'>
+            <div className='rounded-lg shadow-lg shadow-slate-600 md:mx-36 p-5'>
                 <h2 className='text-3xl text-center'>Send Notifications</h2>
                 <form className='flex flex-col justify-center items-center my-10 gap-5'>
                     <div>

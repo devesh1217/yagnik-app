@@ -18,7 +18,7 @@ self.addEventListener('push', function (event) {
     // }
     const options = {
       body: data.body || 'You have a new notification!',
-      icon: data.icon || '/logo.png',
+      icon: data.icon || '/icons/logo.png',
       badge: data.badge || '/monochrome.png',
       vibrate: data.vibrate || [200, 100, 200],
       tag: data.tag || 'default-tag',
@@ -29,7 +29,7 @@ self.addEventListener('push', function (event) {
       ],
       data: data.data || { dateOfArrival: Date.now(), primaryKey: 1 },
       silent: data.silent || false,
-      image: data.image || '/home.png',
+      image: data.image || '/images/home.png',
       requireInteraction: data.requireInteraction || true,
       timestamp: data.timestamp || Date.now(),
       // sound: data.sound || '/sounds/notification.mp3', // Optional; browser support varies
@@ -57,4 +57,25 @@ self.addEventListener('notificationclick', function (event) {
 
   // Close the notification
   event.notification.close();
+});
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('offline-cache').then((cache) => {
+      return cache.addAll([
+        '/offline', // Make sure the offline page is pre-cached
+        '/images/offline.png',
+      ]);
+    })
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() =>
+        caches.open('offline-cache').then((cache) => cache.match('/offline'))
+      )
+    );
+  }
 });

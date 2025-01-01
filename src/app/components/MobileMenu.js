@@ -9,7 +9,7 @@ function MobileMenu({setMenu}) {
                 <button className='text-3xl' onClick={() => {setMenu(prev => !prev)}}>X</button>
             </div>
             <Link href={'/'} onClick={() => {setMenu(prev => !prev)}} className='hover:cursor-pointer flex justify-start items-center gap-5'>
-                <Image src={'/logo.png'} width={50} height={50} alt='Logo'></Image>
+                <Image src={'/icons/logo.png'} width={50} height={50} alt='Logo'></Image>
                 <h1 className='text-3xl'>Sai General Store</h1>
             </Link>
             <div className='mt-16 underline flex flex-col gap-8'>
