@@ -65,11 +65,12 @@ self.addEventListener('install', (event) => {
       return cache.addAll([
         '/offline', // Make sure the offline page is pre-cached
         '/images/offline.png',
-        '/images/logo.png',
-        '/images/icon-192x192.png',
-        '/images/icon-512x512.png',
-        '/images/monochrome.png',
-        '/manifest.png',
+        '/images/home.png',
+        '/icons/logo.png',
+        '/icons/icon-192x192.png',
+        '/icons/icon-512x512.png',
+        '/icons/monochrome.png',
+        '/manifest.json',
       ]);
     })
   );
